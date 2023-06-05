@@ -1,0 +1,26 @@
+#!/bin/bash
+#SBATCH --job-name gphocs
+#SBATCH --output=%x_%j.log
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=36
+#SBATCH --mem-per-cpu=4g
+#SBATCH --time=0-12:00:00
+#SBATCH --account=drabosky1
+#SBATCH --partition=standard
+#SBATCH --mail-type=FAIL,END
+#SBATCH --mail-user=ivanprates@gmail.com
+
+###############################################
+### Bash script by Ivan Prates (ivanprates.org).
+### University of Michigan, Ann Arbor, MI, USA.
+### August 2022.
+### The goals of this script are:
+### To run RAxML based on the cytb and ddRAD data.
+
+## Run RAxML on the ddRAD data:
+raxmlHPC-PTHREADS-AVX2 -T 36 -f a -n n242_m70_bs500_10 -s ../ipyrad/inornatusgr_R1_c90_n242_m70_outfiles/inornatusgr_R1_c90_n242_m70.phy -c 25 -m GTRCAT -N 500 -x 5 -p 5 -o SAMAR_45424_Le_bipe,WAMR_111809_Le_bipe,WAMR_135152_Le_ips,WAMR_157958_Le_ips
+
+## ## Run RAxML on the cytb data:
+#raxmlHPC-PTHREADS-AVX2 -T 16 -n n371.tre -s inornatusgr_cytb_n371_mafft.fasta -m GTRCAT -q part.txt -c 25 -p 12345 -f a -N 1000 -x 12345 -o  UMMZ_242633_Ct_pant,UMMZ_242639_Ct_pant
+
+## End of script.

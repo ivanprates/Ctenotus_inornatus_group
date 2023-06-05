@@ -1,0 +1,29 @@
+#!/bin/bash
+#SBATCH --job-name gphocs
+#SBATCH --output=%x_%j.log
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=36
+#SBATCH --mem-per-cpu=4g
+#SBATCH --time=0-48:00:00
+#SBATCH --account=drabosky1
+#SBATCH --partition=standard
+#SBATCH --mail-type=FAIL,END
+#SBATCH --mail-user=ivanprates@gmail.com
+
+###############################################
+### Bash script by Ivan Prates (ivanprates.org).
+### University of Michigan, Ann Arbor, MI, USA.
+### August 2022.
+### The goals of this script are:
+### To run historical demographic analyses using G-PhoCS.
+
+## Template control file to edit:
+run=control.ctl
+
+## Program:
+gphocs="/scratch/drabosky_root/drabosky/pratesi/G-PhoCS/G-PhoCS_files/bin/G-PhoCS"
+
+## Run:
+${gphocs} ${run} -n 36
+
+## End of script.
