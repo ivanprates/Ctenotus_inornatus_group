@@ -11,4 +11,4 @@ The manuscript is available at:
 
 http://doi.org/10.1111/mec.17074
 
-A PDF copy of the manuscript is available at ivanprates.org/publications.
+A PDF copy of the manuscript is available at https://ivanprates.org/publications.
